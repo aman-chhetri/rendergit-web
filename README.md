@@ -9,9 +9,12 @@ No worries! I got you covered with `rendergit-web`.
 
 Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
 
-## 🌐 Demo
+## 🎥 Demo
 
-![Demo Video](/assets/demo.mp4)
+Click on the thumbnail to watch!
+
+[![Demo Video](https://res.cloudinary.com/dqbj2zfme/image/upload/v1755786377/blogs/rendergit-web/thumbnail_rdlxlc.png)](https://res.cloudinary.com/dqbj2zfme/video/upload/v1755786405/blogs/rendergit-web/demo_mjsdmv.mp4)
+
 
 ## Usage
 
