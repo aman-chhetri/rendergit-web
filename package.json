@@ -1,4 +1,7 @@
 {
+  "name": "rendergit-web",
+  "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "adm-zip": "^0.5.16",
     "highlight.js": "^11.11.1",
