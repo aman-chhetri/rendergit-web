@@ -81,4 +81,48 @@ ehthumbs.db
 Thumbs.db
 
 # Vercel
-.vercel
+.vercel/
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+out/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# IDE files
+.vscode/
+.idea/
+
+# Python cache (if any Python scripts remain)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Misc
+*.tgz
+*.zip
+
+# Ignore cloned repos and temp dirs
+rendergit_*/
+flatten_repo_*/

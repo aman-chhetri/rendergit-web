@@ -1,14 +1,13 @@
 {
     "version": 2,
     "functions": {
-      "api/render.py": {
-        "runtime": "vercel-python@3.1.7",
+      "api/render.js": {
         "maxDuration": 60,
         "memory": 1024
       }
     },
     "routes": [
-      { "src": "/api/render", "dest": "/api/render.py" },
+      { "src": "/api/render", "dest": "/api/render.js" },
       { "src": "/", "dest": "/index.html" }
     ]
 }
