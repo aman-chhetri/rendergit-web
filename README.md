@@ -11,9 +11,9 @@ Flatten any GitHub repository into a single, searchable HTML page with syntax hi
 
 ## 🎥 Demo
 
-Click on the thumbnail to watch!
+Click on the below thumbnail to watch!
 
-[![Demo Video](https://res.cloudinary.com/dqbj2zfme/image/upload/v1755786377/blogs/rendergit-web/thumbnail_rdlxlc.png)](https://res.cloudinary.com/dqbj2zfme/video/upload/v1755786405/blogs/rendergit-web/demo_mjsdmv.mp4)
+[![Demo Video](https://res.cloudinary.com/dqbj2zfme/image/upload/v1755786809/projects/rendergit-web/thumbnail_ti346o.png)](https://res.cloudinary.com/dqbj2zfme/video/upload/v1755786870/projects/rendergit-web/demo_wjelrg.mp4)
 
 
 ## Usage
