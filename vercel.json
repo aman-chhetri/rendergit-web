@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
       "api/render.py": {
-        "runtime": "python3.9",
+        "runtime": "vercel-python@3.1.7",
         "maxDuration": 60,
         "memory": 1024
       }
@@ -11,5 +11,4 @@
       { "src": "/api/render", "dest": "/api/render.py" },
       { "src": "/", "dest": "/index.html" }
     ]
-  }
-  
+}
