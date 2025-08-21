@@ -4,6 +4,7 @@
   "type": "module",
   "dependencies": {
     "adm-zip": "^0.5.16",
+    "formidable": "^3.5.4",
     "highlight.js": "^11.11.1",
     "marked": "^16.2.0",
     "node-fetch": "^3.3.2",
