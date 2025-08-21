@@ -1,15 +1,17 @@
-# RenderGit
+# RenderGit Web
 
-> Flatten a GitHub repo into a single static HTML page for fast skimming and understanding.
+> Render any GitHub repo into a single static HTML page for fast skimming and understanding.
 
 * Tired of clicking around complex file hierarchies of GitHub repos? 
 * Do you just want to see all of the code on a single page? 
 
-No worries! I got you covered with `rendergit-web`. Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
+No worries! I got you covered with `rendergit-web`. 
 
-## 🌐 Demo
+Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
 
-**Try it now:** [rendergit-web.vercel.app](https://rendergit-web.vercel.app)
+<!-- ## 🌐 Demo
+
+**Try it now:** [rendergit-web](https://rendergit-web.vercel.app) -->
 
 ## Usage
 
