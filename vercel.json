@@ -2,7 +2,7 @@
     "version": 2,
     "functions": {
       "api/render.py": {
-        "runtime": "python3.11",
+        "runtime": "python3.9",
         "maxDuration": 60,
         "memory": 1024
       }
@@ -12,6 +12,4 @@
       { "src": "/", "dest": "/index.html" }
     ]
   }
-  
-  
   
