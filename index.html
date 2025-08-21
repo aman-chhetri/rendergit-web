@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>rendergit web</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 2rem; line-height: 1.45; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; margin: 0 0 1rem 0; }
+    form { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    input[type="url"] { flex: 1; min-width: 260px; padding: 0.6rem 0.8rem; font-size: 1rem; border: 1px solid #d1d9e0; border-radius: 6px; }
+    input[type="number"] { width: 140px; padding: 0.6rem 0.8rem; font-size: 1rem; border: 1px solid #d1d9e0; border-radius: 6px; }
+    button { padding: 0.6rem 1rem; font-size: 1rem; border: 1px solid #d1d9e0; border-radius: 6px; background: #0366d6; color: #fff; cursor: pointer; }
+    button[disabled] { opacity: .6; cursor: not-allowed; }
+    .hint { color: #666; font-size: .95rem; margin-bottom: .5rem; }
+    .frame-wrap { margin-top: 1rem; border: 1px solid #d1d9e0; border-radius: 8px; overflow: hidden; }
+    #result { width: 100%; height: 78vh; border: 0; display: none; }
+    #loading { display: none; padding: 1rem; }
+    .error { color: #b00020; background: #fff3f3; padding: .75rem; border-radius: 6px; display: none; }
+    .examples { margin-top: .5rem; }
+    .examples a { margin-right: .5rem; }
+    .description { margin-bottom: 1.5rem; }
+    .description p { margin: 0.5rem 0; }
+    .usage { margin-bottom: 1.5rem; }
+    .usage h3 { margin: 0 0 0.5rem 0; font-size: 1rem; }
+    .usage ol { margin: 0; padding-left: 1.5rem; }
+    .usage li { margin: 0.25rem 0; }
+  </style>
+  <script>
+    async function onSubmit(e) {
+      e.preventDefault();
+      const urlInput = document.getElementById('repo_url');
+      const maxBytesInput = document.getElementById('max_bytes');
+      const resultFrame = document.getElementById('result');
+      const loading = document.getElementById('loading');
+      const errorBox = document.getElementById('error');
+      const btn = document.getElementById('submit_btn');
+
+      const repoUrl = urlInput.value.trim();
+      const maxBytes = parseInt(maxBytesInput.value, 10) || 51200;
+      if (!repoUrl) return;
+
+      errorBox.style.display = 'none';
+      resultFrame.style.display = 'none';
+      loading.style.display = 'block';
+      btn.disabled = true;
+
+      try {
+        const apiUrl = `/api/render?repo_url=${encodeURIComponent(repoUrl)}&max_bytes=${encodeURIComponent(maxBytes)}`;
+        // Fetch as text then inject into iframe
+        const res = await fetch(apiUrl);
+        const text = await res.text();
+        if (!res.ok) throw new Error(text || `HTTP ${res.status}`);
+
+        const blob = new Blob([text], { type: 'text/html' });
+        const objectUrl = URL.createObjectURL(blob);
+        resultFrame.src = objectUrl;
+        resultFrame.style.display = 'block';
+      } catch (err) {
+        errorBox.textContent = err.message || String(err);
+        errorBox.style.display = 'block';
+      } finally {
+        loading.style.display = 'none';
+        btn.disabled = false;
+      }
+    }
+
+    function setExample(url) {
+      document.getElementById('repo_url').value = url;
+    }
+  </script>
+  <meta name="robots" content="noindex" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+  <meta http-equiv="Cross-Origin-Embedder-Policy" content="credentialless" />
+  <meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin" />
+  <meta http-equiv="Permissions-Policy" content="clipboard-read=(self), clipboard-write=(self)" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src 'self' blob:; img-src 'self' data:; object-src 'none'" />
+  
+</head>
+<body>
+  <div class="container">
+    <h1>rendergit web</h1>
+    <div class="description">
+      <p><strong>rendergit</strong> flattens any GitHub repository into a single, searchable HTML page with syntax highlighting and navigation.</p>
+      <p>Perfect for code review, exploration, and instant Ctrl+F across the entire codebase.</p>
+    </div>
+    <div class="usage">
+      <h3>How to use:</h3>
+      <ol>
+        <li>Paste a GitHub repository URL below</li>
+        <li>Optionally adjust the max file size (default: 50KB)</li>
+        <li>Click "Render" and wait for processing</li>
+        <li>Browse the flattened code with syntax highlighting and sidebar navigation</li>
+        <li>Use Ctrl+F to search across all files at once</li>
+        <li>Toggle between Human view (pretty UI) and LLM view (CXML format for AI tools)</li>
+      </ol>
+    </div>
+    <form onsubmit="onSubmit(event)">
+      <input id="repo_url" type="url" required placeholder="https://github.com/owner/repo" />
+      <input id="max_bytes" type="number" min="1024" step="1024" value="51200" title="Max file size to render (bytes)" />
+      <button id="submit_btn" type="submit">Render</button>
+    </form>
+         <div class="examples">
+       <span class="hint">Examples:</span>
+       <a href="#" onclick="setExample('https://github.com/karpathy/nanoGPT')">nanoGPT</a>
+       <a href="#" onclick="setExample('https://github.com/karpathy/micrograd')">micrograd</a>
+       <a href="#" onclick="setExample('https://github.com/karpathy/minGPT')">minGPT</a>
+     </div>
+    <div id="error" class="error"></div>
+    <div id="loading">Rendering… This can take 5–30s for larger repos.</div>
+    <div class="frame-wrap">
+      <iframe id="result" title="rendered repo"></iframe>
+    </div>
+  </div>
+</body>
+</html>
+
+
