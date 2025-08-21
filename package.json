@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "adm-zip": "^0.5.16",
     "highlight.js": "^11.11.1",
     "marked": "^16.2.0",
+    "node-fetch": "^3.3.2",
     "simple-git": "^3.28.0"
   }
 }
