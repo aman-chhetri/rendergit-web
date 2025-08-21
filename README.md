@@ -1,46 +1,25 @@
-# rendergit-web
+# RenderGit
 
-> Just show me the code.
+> Flatten a GitHub repo into a single static HTML page for fast skimming and understanding.
 
-Tired of clicking around complex file hierarchies of GitHub repos? Do you just want to see all of the code on a single page? Enter `rendergit-web`. Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
+* Tired of clicking around complex file hierarchies of GitHub repos? 
+* Do you just want to see all of the code on a single page? 
 
-## 🌐 Live Demo
+No worries! I got you covered with `rendergit-web`. Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
+
+## 🌐 Demo
 
 **Try it now:** [rendergit-web.vercel.app](https://rendergit-web.vercel.app)
 
-## Basic usage
+## Usage
 
-### Web Application (Recommended)
 Simply visit the web app and paste any GitHub repository URL:
 1. Go to [rendergit-web.vercel.app](https://rendergit-web.vercel.app)
-2. Paste a GitHub repository URL (e.g., `https://github.com/karpathy/nanoGPT`)
+2. Paste a GitHub repository URL (e.g., `https://github.com/user_name/repo_name`)
 3. Optionally adjust the max file size (default: 50KB)
 4. Click "Render" and wait for processing
 5. Browse the flattened code with syntax highlighting and sidebar navigation
 
-### Local Development
-
-Clone and run locally:
-
-```bash
-git clone https://github.com/aman-chhetri/rendergit-web
-cd rendergit-web
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1  # Windows
-pip install -e .
-python serve.py
-```
-
-Then visit `http://127.0.0.1:5000`
-
-### CLI Usage (Original)
-
-You can also use the original CLI version:
-
-```bash
-pip install -e .
-rendergit https://github.com/karpathy/nanoGPT
-```
 
 ## Features
 
@@ -58,28 +37,7 @@ rendergit https://github.com/karpathy/nanoGPT
 - **Git fallback** - Uses GitHub zip archives if git is unavailable
 
 
-## Deployment
-
-This project is deployed on Vercel with automatic deployments from GitHub:
-
-1. **Fork this repository**
-2. **Connect to Vercel**: Import your fork in the Vercel dashboard
-3. **Deploy**: Vercel will automatically deploy on every push to main
-
-## Project Structure
-
-```
-rendergit-web/
-├── index.html          # Frontend UI
-├── api/
-│   └── render.py       # Serverless function
-├── repo_to_single_page.py  # Core rendering logic
-├── requirements.txt    # Python dependencies
-├── vercel.json        # Vercel configuration
-└── README.md          # This file
-```
-
 ## Contributing
 
-This is a web adaptation of the original [rendergit](https://github.com/karpathy/rendergit) by Andrej Karpathy. Feel free to submit issues and pull requests!
+This is a web app adaptation of the original [rendergit](https://github.com/karpathy/rendergit) by Andrej Karpathy. Feel free to submit issues and pull requests!
 
