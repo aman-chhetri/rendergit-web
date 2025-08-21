@@ -9,9 +9,9 @@ No worries! I got you covered with `rendergit-web`.
 
 Flatten any GitHub repository into a single, searchable HTML page with syntax highlighting, markdown rendering, and a clean sidebar navigation. Perfect for code review, exploration, and an instant Ctrl+F experience.
 
-<!-- ## 🌐 Demo
+## 🌐 Demo
 
-**Try it now:** [rendergit-web](https://rendergit-web.vercel.app) -->
+![Demo Video](/assets/demo.mp4)
 
 ## Usage
 
